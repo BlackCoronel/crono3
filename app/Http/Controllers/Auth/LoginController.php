@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo(){
+        if(Auth::user()->rol == 'admin'){
+            return  '/admin';
+        } elseif(Auth::user()->rol == 'corredor'){
+            return '/panel_usuario';
+        } elseif(Auth::user()->rol == 'club'){
+            return '/panel_club';
+        }
+    }
 
     /**
      * Create a new controller instance.

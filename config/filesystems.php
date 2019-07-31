@@ -54,6 +54,13 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => 'home749050261.1and1-data.host',
+            'username' => 'u94485429',
+            'password' => 'cURMASA2018#',
+        ],
 
         's3' => [
             'driver' => 's3',
